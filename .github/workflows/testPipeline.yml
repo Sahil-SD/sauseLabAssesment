@@ -15,6 +15,8 @@ jobs:
           node-version: 18
       - name: Install dependencies
         run: npm ci
+      - name: Allow unsecure Node version
+        run: ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION=true
       - name: Install Playwright Browsers
         run: npx playwright install
       - name: Run Playwright tests
