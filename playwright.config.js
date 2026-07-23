@@ -66,17 +66,17 @@ module.exports = defineConfig({
         },
       },
     },
-//    {
-//      name: "Microsoft Edge",
-//      use: {
-//        ...devices["Desktop Edge"],
-//        viewport: { width: 1920, height: 1080 },
-//        launchOptions: {
-//          args: ["--start-fullscreen"],
-//          channel: "msedge",
-//          headless: true,
-//        },
-//      },
-//    },
+    {
+      name: "Microsoft Edge",
+      use: {
+        ...devices["Desktop Edge"],
+        viewport: { width: 1920, height: 1080 },
+        launchOptions: {
+          args: ["--start-fullscreen"],
+          channel: "msedge",
+          headless: true,
+        },
+      },
+    },
   ],
 });

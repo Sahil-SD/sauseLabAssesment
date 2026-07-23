@@ -33,8 +33,8 @@ test.describe('Shopping Cart Testing', () => {
     const cartCount = await cartPage.getCartItemCount('productTd_cartItem');
     const retryCount = testInfo.retry;
     await expect(cartCount).toBeGreaterThan(0);
-    await expect(cartCount).toEqual(3);
-//    await expect(cartCount).toEqual(retryCount ? 3 : 2); // handling flaky
+//    await expect(cartCount).toEqual(3);
+    await expect(cartCount).toEqual(retryCount ? 3 : 2); // making flaky intentionally
     });
 
     test('Remove Items from Cart', async ({ page }) => {
