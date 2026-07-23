@@ -79,6 +79,30 @@ exports.BasePage = class BasePage {
     await this.elementHandle.waitFor({ state: "hidden" });
   }
 
+  // this is unused code, keeping this because of fluent wait. but it is already running method in USSEP project.
+  async waitUntilLoaderInvisible(elementKey, timeout = 10000) {
+    this.locator = await this.findValueOrLocatorFromTestData(elementKey, locators);
+    this.elementHandle = await this.page.locator(this.locator);
+
+    const interval = 500; // Check every 500ms
+    const startTime = Date.now();
+
+    while (Date.now() - startTime < timeout) {
+      const count = await this.page.locator(this.locator).count();
+      if (count === 0) {
+        return; // Loader element not found, exit the function
+      }
+      const visibility = await this.elementHandle.evaluate(el => window.getComputedStyle(el).visibility);
+
+      if (visibility === 'hidden') {
+        return; // Loader is invisible, exit the function
+      }
+      await this.page.waitForTimeout(interval); // Wait for the interval before checking again
+    }
+
+    throw new Error(`Loader did not become invisible within ${timeout}ms`);
+  }
+
   async selectFromDropDown(optionValue, element) {
     this.locator = await this.findValueOrLocatorFromTestData(element, locators);
     this.text = await this.findValueOrLocatorFromTestData(optionValue, data);
