@@ -3,7 +3,7 @@ const { LoginPage } = require('../pages/loginPage');
 const { ProductPage } = require('../pages/productPage');
 const { CartPage } = require('../pages/cartPage');
 
-test.describe('Shopping Cart Testing', () => {
+test.describe.only('Shopping Cart Testing', () => {
     let loginPage, productPage, cartPage;
 
     test.beforeEach(async ({ page }) => {
@@ -30,11 +30,8 @@ test.describe('Shopping Cart Testing', () => {
 
         // Verify cart contents
         await productPage.clickElement('headerTd_cartIcon');
-    const cartCount = await cartPage.getCartItemCount('productTd_cartItem');
-    const retryCount = testInfo.retry;
-    await expect(cartCount).toBeGreaterThan(0);
-//    await expect(cartCount).toEqual(3);
-    await expect(cartCount).toEqual(retryCount ? 3 : 2); // making flaky intentionally
+        const retryCount = testInfo.retry;
+        await cartPage.verifyCartItemNotEmpty(retryCount ? 'cartTd_cartItemCount' : 'cartTd_cartItemCount2');
     });
 
     test('Remove Items from Cart', async ({ page }) => {

@@ -12,6 +12,8 @@ module.exports = {
 
     data: [
         {'key': 'totalCartValue', 'value': '6'},
+        {'key': 'cartItemCount', 'value': 3},
+        {'key': 'cartItemCount2', 'value': 2},
     ],
 };
 
