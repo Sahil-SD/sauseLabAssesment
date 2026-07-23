@@ -138,4 +138,13 @@ exports.BasePage = class BasePage {
     const eleText = await this.elementHandle.innerText();
     expect(eleText).toBe(this.text);
   }
+
+  async verifyContainsText(text, element) {
+      this.text = await this.findValueOrLocatorFromTestData(text, data);
+      this.locator = await this.findValueOrLocatorFromTestData(element, locators);
+      this.elementHandle = await this.page.locator(this.locator);
+      await this.elementHandle.waitFor({ state: "visible" });
+      const eleText = await this.elementHandle.innerText();
+      expect(eleText).toContain(this.text);
+    }
 };

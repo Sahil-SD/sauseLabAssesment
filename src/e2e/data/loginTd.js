@@ -3,6 +3,7 @@ module.exports = {
         {'key': 'userName', 'value': '#user-name'},
         {'key': 'password', 'value': '#password'},
         {'key': 'login', 'value': '#login-button'},
+        {'key': 'credError', 'value': '[data-test="error"]'},
     ],
 
     data: [
@@ -11,6 +12,7 @@ module.exports = {
         {'key': 'invalidUser', 'value': 'invalid_user'},
         {'key': 'wrongPassword', 'value': 'wrong_password'},
         {'key': 'lockedOutUser', 'value': 'locked_out_user'},
-        {'key': 'titleValue', 'value': 'Swag Labs'}
+        {'key': 'titleValue', 'value': 'Swag Labs'},
+        {'key': 'lockedOutMsg', 'value': 'Epic sadface: Sorry, this user has been locked out'}
     ],
 };

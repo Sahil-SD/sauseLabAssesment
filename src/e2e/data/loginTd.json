@@ -23,6 +23,10 @@
     {
       "key": "titleValue",
       "value": "Swag Labs"
+    },
+    {
+      "key": "lockedOutMsg",
+      "value": "Epic sadface: Sorry, this user has been locked out"
     }
   ],
   "locators": [
@@ -45,6 +49,10 @@
     {
       "key": "inventoryContainer",
       "value": "#inventory_container"
+    },
+    {
+      "key": "credError",
+      "value": "[data-test=\"error\"]"
     }
   ]
 }

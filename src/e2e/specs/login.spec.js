@@ -1,31 +1,19 @@
 //const { test, expect } = require('@playwright/test');
-const { test, expect } = require('../fixtures/fixture');
+const { test } = require('../fixtures/fixture');
 const {LoginPage}= require('../pages/loginPage');
 
-//test('has title', async ({ page }) => {
-//  let loginPage=new LoginPage(page);
-//  await loginPage.visitUrl();
-//
-// // Expect a title "to contain" a substring.
-//  await loginPage.verifyTitle('loginTd_titleValue');
-//});
-//
-//test('login to portal', async ({ page }) => {
-//  let loginPage=new LoginPage(page);
-//  await loginPage.visitUrl();
-//  await loginPage.loginWithValidCred();
-//});
+test.describe('Login screen element rendering', () => {
+    test.beforeEach(async ({ loginPage, page }) => {
+       await loginPage.visitUrl();
+    });
+    test('has title', async ({ loginPage, page }) => {
+     // Expect a title "to contain" a substring.
+      await loginPage.verifyTitle('loginTd_titleValue');
+    });
 
-test('has title', async ({ loginPage }) => {
-//  let loginPage=new LoginPage(page);
-  await loginPage.visitUrl();
-
- // Expect a title "to contain" a substring.
-  await loginPage.verifyTitle('loginTd_titleValue');
-});
-
-test('login to portal', async ({ loginPage }) => {
-//  let loginPage=new LoginPage(page);
-  await loginPage.visitUrl();
-  await loginPage.loginWithValidCred();
+    test('login field presence', async ({ loginPage, page }) => {
+      await loginPage.verifyVisibility('loginTd_userName');
+      await loginPage.verifyVisibility('loginTd_password');
+      await loginPage.verifyVisibility('loginTd_login');
+    });
 });
