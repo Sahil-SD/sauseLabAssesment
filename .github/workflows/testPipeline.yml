@@ -21,6 +21,14 @@ jobs:
         run: npx playwright install
       - name: Run Playwright tests
         run: npm run test:dev
+      - name: Allure report generation
+        run: npm run report:allure:generate
+      - uses: actions/upload-artifact@v6
+        if: always()
+        with:
+          name: test-report-allure-report
+          path: test-report/allure-report/
+          retention-days: 10
       - uses: actions/upload-artifact@v6
         if: always()
         with:
