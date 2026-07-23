@@ -1,0 +1,50 @@
+{
+  "data": [
+    {
+      "key": "user",
+      "value": "standard_user"
+    },
+    {
+      "key": "lockedOutUser",
+      "value": "locked_out_user"
+    },
+    {
+      "key": "pass",
+      "value": "secret_sauce"
+    },
+    {
+      "key": "invalidUser",
+      "value": "invalid_user"
+    },
+    {
+      "key": "wrongPassword",
+      "value": "wrong_password"
+    },
+    {
+      "key": "titleValue",
+      "value": "Swag Labs"
+    }
+  ],
+  "locators": [
+    {
+      "key": "userName",
+      "value": "[data-test=\"username\"]"
+    },
+    {
+      "key": "password",
+      "value": "[data-test=\"password\"]"
+    },
+    {
+      "key": "login",
+      "value": "[data-test=\"login-button\"]"
+    },
+    {
+      "key": "errorMessage",
+      "value": "[data-test=\"error\"]"
+    },
+    {
+      "key": "inventoryContainer",
+      "value": "#inventory_container"
+    }
+  ]
+}

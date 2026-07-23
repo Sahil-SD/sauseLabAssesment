@@ -1,0 +1,9 @@
+node_modules/
+
+logs/
+.idea/
+
+/test-results/
+/playwright-report/
+/reports/
+/test-report/
