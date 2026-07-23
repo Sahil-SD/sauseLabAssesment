@@ -3,7 +3,7 @@ const { LoginPage } = require('../pages/loginPage');
 const { ProductPage } = require('../pages/productPage');
 const { CartPage } = require('../pages/cartPage');
 
-test.describe.only('Shopping Cart Testing', () => {
+test.describe('Shopping Cart Testing', () => {
     let loginPage, productPage, cartPage;
 
     test.beforeEach(async ({ page }) => {
