@@ -5,6 +5,11 @@ on:
   pull_request:
     branches: [ main, master, develop ]
   workflow_dispatch:
+
+# CRITICAL: This grants GitHub Actions write permissions to deploy to your gh-pages branch
+permissions:
+  contents: write
+
 jobs:
   test:
     timeout-minutes: 60
@@ -36,9 +41,106 @@ jobs:
           name: test-report-playwright-report
           path: test-report/playwright-report/
           retention-days: 10
-      - uses: peaceiris/actions-gh-pages@v4
+
+      # NEW STEP: Combine both HTML reports into a single staging directory with a landing dashboard
+      - name: Combine reports for GitHub Pages
+        if: always()
+        run: |
+          mkdir -p ./test-report/combined-pages
+          
+          # Copy Playwright report if it exists
+          if [ -d "./test-report/playwright-report" ]; then
+            cp -r ./test-report/playwright-report ./test-report/combined-pages/playwright
+          fi
+          
+          # Copy Allure report if it exists
+          if [ -d "./test-report/allure-report" ]; then
+            cp -r ./test-report/allure-report ./test-report/combined-pages/allure
+          fi
+          
+          # Create a clean landing page at the root index.html
+          cat <<'EOF' > ./test-report/combined-pages/index.html
+          <!DOCTYPE html>
+          <html lang="en">
+          <head>
+              <meta charset="UTF-8">
+              <meta name="viewport" content="width=device-width, initial-scale=1.0">
+              <title>Test Automation Dashboard</title>
+              <style>
+                  body {
+                      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+                      display: flex;
+                      justify-content: center;
+                      align-items: center;
+                      height: 100vh;
+                      background-color: #f3f4f6;
+                      margin: 0;
+                  }
+                  .card {
+                      background: white;
+                      padding: 40px;
+                      border-radius: 12px;
+                      box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05);
+                      text-align: center;
+                      max-width: 500px;
+                      width: 100%;
+                  }
+                  h1 {
+                      color: #111827;
+                      font-size: 24px;
+                      margin-bottom: 8px;
+                  }
+                  p {
+                      color: #6b7280;
+                      margin-bottom: 30px;
+                  }
+                  .btn-group {
+                      display: flex;
+                      flex-direction: column;
+                      gap: 15px;
+                  }
+                  .btn {
+                      display: block;
+                      padding: 14px 20px;
+                      border-radius: 8px;
+                      text-decoration: none;
+                      font-weight: 600;
+                      font-size: 16px;
+                      transition: all 0.2s ease;
+                  }
+                  .btn-playwright {
+                      background-color: #2e8b57;
+                      color: white;
+                  }
+                  .btn-playwright:hover {
+                      background-color: #21613c;
+                  }
+                  .btn-allure {
+                      background-color: #2563eb;
+                      color: white;
+                  }
+                  .btn-allure:hover {
+                      background-color: #1d4ed8;
+                  }
+              </style>
+          </head>
+          <body>
+              <div class="card">
+                  <h1>🎭 Test Automation Dashboard</h1>
+                  <p>Select a report below to view the latest test execution details.</p>
+                  <div class="btn-group">
+                      <a href="./playwright/" class="btn btn-playwright">Playwright HTML Report</a>
+                      <a href="./allure/" class="btn btn-allure">Allure Test Report</a>
+                  </div>
+              </div>
+          </body>
+          </html>
+          EOF
+
+      # UPDATED DEPLOY STEP: Deploy the combined staging folder
+      - name: Deploy HTML reports to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
         if: always()
         with:
-          name: Deploy HTML report to GitHub Pages
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./test-report/playwright-report
+          publish_dir: ./test-report/combined-pages
