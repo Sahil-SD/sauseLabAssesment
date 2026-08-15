@@ -1,4 +1,0 @@
-2026-08-15 06:53:46 | ERROR | Error while asserting count Error: expect(received).toEqual(expected) // deep equality
-
-Expected: 2
-Received: 3
