@@ -11,7 +11,7 @@ permissions:
   contents: write
 
 jobs:
-  test:
+  playwright-test:
     timeout-minutes: 60
     runs-on: ubuntu-latest
     steps:
@@ -45,7 +45,7 @@ jobs:
       # NEW STEP: Build staging folder and copy the external template HTML file
       - name: Combine reports for GitHub Pages
         if: always()
-        run: sh ./scripts/report-combiner.sh
+        run: sh ./.github/workflows/scripts/report-combiner.sh
 
       - name: Deploy HTML reports to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
