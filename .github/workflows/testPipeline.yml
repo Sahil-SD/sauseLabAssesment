@@ -59,7 +59,7 @@ jobs:
           fi
           
           # Copy your separate HTML index template to the root of the staging folder
-          cp .github/workflows/report-util/index.html ./test-report/combined-pages/index.html
+          cp -r .github/workflows/report-util ./test-report/combined-pages
 
       - name: Deploy HTML reports to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
