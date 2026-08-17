@@ -41,6 +41,12 @@ jobs:
           name: test-report-playwright-report
           path: test-report/playwright-report/
           retention-days: 10
+      - uses: actions/upload-artifact@v6
+        if: always()
+        with:
+          name: automation-execution-log
+          path: logs/
+          retention-days: 10
 
       # NEW STEP: Build staging folder and copy the external template HTML file
       - name: Combine reports for GitHub Pages
