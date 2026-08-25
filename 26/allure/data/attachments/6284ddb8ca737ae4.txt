@@ -1,0 +1,16 @@
+2026-08-25 12:07:58 | INFO | {"key":"user","value":"standard_user"}
+2026-08-25 12:07:58 | INFO | {"key":"userName","value":"#user-name"}
+2026-08-25 12:07:58 | INFO | {"key":"pass","value":"secret_sauce"}
+2026-08-25 12:07:58 | INFO | {"key":"password","value":"#password"}
+2026-08-25 12:07:58 | INFO | {"key":"login","value":"#login-button"}
+2026-08-25 12:07:58 | INFO | {"key":"inventoryContainer","value":"[data-test=\"inventory-container\"]"}
+2026-08-25 12:07:58 | INFO | {"key":"cartBagPack","value":"[data-test=\"add-to-cart-sauce-labs-backpack\"]"}
+2026-08-25 12:07:58 | INFO | {"key":"cartBikeLight","value":"[data-test=\"add-to-cart-sauce-labs-bike-light\"]"}
+2026-08-25 12:07:59 | INFO | {"key":"cartTshirt","value":"[data-test=\"add-to-cart-sauce-labs-bolt-t-shirt\"]"}
+2026-08-25 12:07:59 | INFO | {"key":"cartIcon","value":".shopping_cart_link"}
+2026-08-25 12:07:59 | INFO | {"key":"cartItemCount2","value":2}
+2026-08-25 12:07:59 | INFO | {"key":"cartItem","value":".cart_item"}
+2026-08-25 12:07:59 | ERROR | Error while asserting count Error: expect(received).toEqual(expected) // deep equality
+
+Expected: 2
+Received: 3

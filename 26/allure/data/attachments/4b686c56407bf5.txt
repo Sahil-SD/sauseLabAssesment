@@ -1,0 +1,6 @@
+2026-08-25 12:07:17 | INFO | {"key":"user","value":"standard_user"}
+2026-08-25 12:07:17 | INFO | {"key":"userName","value":"#user-name"}
+2026-08-25 12:07:17 | INFO | {"key":"pass","value":"secret_sauce"}
+2026-08-25 12:07:17 | INFO | {"key":"password","value":"#password"}
+2026-08-25 12:07:17 | INFO | {"key":"login","value":"#login-button"}
+2026-08-25 12:07:17 | INFO | {"key":"inventoryContainer","value":"[data-test=\"inventory-container\"]"}

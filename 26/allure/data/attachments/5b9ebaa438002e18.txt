@@ -1,0 +1,8 @@
+2026-08-25 12:07:56 | INFO | {"key":"lockedOutUser","value":"locked_out_user"}
+2026-08-25 12:07:56 | INFO | {"key":"userName","value":"#user-name"}
+2026-08-25 12:07:57 | INFO | {"key":"pass","value":"secret_sauce"}
+2026-08-25 12:07:57 | INFO | {"key":"password","value":"#password"}
+2026-08-25 12:07:57 | INFO | {"key":"login","value":"#login-button"}
+2026-08-25 12:07:57 | INFO | {"key":"credError","value":"[data-test=\"error\"]"}
+2026-08-25 12:07:57 | INFO | {"key":"lockedOutMsg","value":"Epic sadface: Sorry, this user has been locked out"}
+2026-08-25 12:07:57 | INFO | {"key":"credError","value":"[data-test=\"error\"]"}

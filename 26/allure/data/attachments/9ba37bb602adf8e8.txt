@@ -1,0 +1,10 @@
+2026-08-25 12:07:27 | INFO | {"key":"user","value":"standard_user"}
+2026-08-25 12:07:27 | INFO | {"key":"userName","value":"#user-name"}
+2026-08-25 12:07:28 | INFO | {"key":"pass","value":"secret_sauce"}
+2026-08-25 12:07:28 | INFO | {"key":"password","value":"#password"}
+2026-08-25 12:07:28 | INFO | {"key":"login","value":"#login-button"}
+2026-08-25 12:07:28 | INFO | {"key":"inventoryContainer","value":"[data-test=\"inventory-container\"]"}
+2026-08-25 12:07:28 | INFO | {"key":"cartBagPack","value":"[data-test=\"add-to-cart-sauce-labs-backpack\"]"}
+2026-08-25 12:07:28 | INFO | {"key":"cartBikeLight","value":"[data-test=\"add-to-cart-sauce-labs-bike-light\"]"}
+2026-08-25 12:07:28 | INFO | {"key":"shoppingCartBadge","value":".shopping_cart_badge"}
+2026-08-25 12:07:28 | INFO | {"key":"cartIcon","value":".shopping_cart_link"}
