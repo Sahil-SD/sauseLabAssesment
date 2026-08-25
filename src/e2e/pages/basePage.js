@@ -36,7 +36,7 @@ exports.BasePage = class BasePage {
         : null;
     if (testData) {
       const entry = await testData.find((entry) => entry.key === keyString);
-//      logger.info(`${JSON.stringify(entry)}`);
+      logger.info(`${JSON.stringify(entry)}`);
       if (entry) {
         return await entry.value;
       } else {

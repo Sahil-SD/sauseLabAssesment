@@ -59,6 +59,7 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./test-report/combined-pages
+          destination_dir: ${{ github.run_number }}
       - name: Display report URL
         if: always()
         run: | 
